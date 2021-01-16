@@ -1,0 +1,118 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/templates/simple-sidebar)
+ * Copyright 2013-2020 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
+
+@font-face{
+    src: url('Metropolis-Regular.otf');
+    font-family: "Metropolis";
+}
+
+@font-face{
+    src: url('Metropolis-SemiBold.otf');
+    font-family: "Metropolis_bold";
+}
+
+
+#wrapper {
+    overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+}
+
+.btn-secondary{
+    font-family: Metropolis;
+    font-size: 13px;
+}
+
+
+#sidebar-wrapper .sidebar-heading {
+    font-family: Metropolis_bold;
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+
+#sidebar-wrapper .list-group {
+    width: 15rem;
+}
+
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+}
+
+h6{
+    font-family: Metropolis;
+}
+
+h5{
+    font-family: Metropolis_bold;
+    font-size: 13px;
+    color: #666666;
+}
+
+#select-tab{
+    font-family: Metropolis_bold;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+
+div > li {
+    border-left:2px solid #5a6268;
+}
+
+#rotate-arrow {
+    -moz-transition: all 0.5s !important;
+    -webkit-transition: all 0.5s !important;
+    -ms-transition: all 0.5s !important;
+    -o-transition: all 0.5s !important;
+    transition: all 0.5s !important;
+}
+
+#select-tab.rotate #rotate-arrow{
+     -webkit-transform: rotate(90deg);
+     -moz-transform: rotate(90deg);
+     -o-transform: rotate(90deg);
+     -ms-transform: rotate(90deg);
+     transform: rotate(90deg);
+}
+
+/*
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar ul li >a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}*/

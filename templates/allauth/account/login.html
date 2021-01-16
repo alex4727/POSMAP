@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load account socialaccount %} 
+{% providers_media_js %} 
+{% load static %}
+{% block title %} Login{% endblock %}
+{% block CSS %}
+<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+{% endblock %}
+{% block content %}
+<!-- Nav Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">POSMAP</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">Map
+            <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'carpool' %}">Car Pool</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+          </li>
+          <li class="nav-item active">
+            {% if user.is_authenticated %}
+            <a class="nav-link" href="{% url 'account_logout' %}">LogOut</a>
+            {% else %}
+            <a class="nav-link" href="{% url 'account_login' %}">LogIn</a>
+            {% endif %}
+            </li>
+          </ul>
+      </div>
+      </div>
+      </nav>
+
+    <div class="container-login100" style="background-image: url('../../../static/images/pohang.png');">
+      <div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
+        <form class="login100-form validate-form login" method="post" action="{% url 'account_login' %}">
+          {% csrf_token %}
+          <span class="login100-form-title p-b-37">
+            Sign In
+          </span>
+
+          {% if form.errors %}
+          <div class="text-center p-t-0 p-b-10">
+          <span class="txt3">
+            Wrong Username or Password!!
+          </span>
+          </div>
+          {% endif %}
+
+          <div class="wrap-input100 validate-input m-b-20" data-validate="Enter username">
+            <input class="input100" type="text" name="login" placeholder="Username" autofocus="autofocus" maxlength="150" required id="id_login">
+            <span class="focus-input100"></span>
+          </div>
+
+          <div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
+            <input class="input100" type="password" name="password" placeholder="Password" required id="id_password">
+            <span class="focus-input100"></span>
+          </div>
+          
+
+          <div class="container-login100-form-btn">
+            <button class="login100-form-btn" type="submit">
+              Sign In
+            </button>
+          </div>  
+
+          <div class="text-center p-t-57 p-b-20">
+            <span class="txt1">
+              Or Login / Sign Up with
+            </span>
+          </div>
+
+          <div class="flex-c p-b-112">
+            <a href="{% provider_login_url 'kakao' %}" class="login100-social-item">
+              <img src="../../../static/images/icons/icon-kakao.png" alt="kakao">
+            </a>
+          </div>
+
+          <div class="text-center">
+            <a href="{%url 'account_signup' %}" class="txt2 hov1">
+              Sign Up
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="dropDownSelect1"></div>
+    <!--===============================================================================================-->
+      <script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+    <!--===============================================================================================-->
+      <script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+      <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!--===============================================================================================-->
+      <script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+    <!--===============================================================================================-->
+      <script src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
+      <script src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
+    <!--===============================================================================================-->
+      <script src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
+    <!--===============================================================================================-->
+      <script src="{% static 'js/main.js' %}"></script>
+    
+{% endblock %}

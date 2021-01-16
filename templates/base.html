@@ -1,0 +1,57 @@
+{% load leaflet_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css"  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-contextmenu/1.4.0/leaflet.contextmenu.css" />
+
+  <script src="https://kit.fontawesome.com/273b19f7cc.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-contextmenu/1.4.0/leaflet.contextmenu.js"></script>
+
+  <script src="{% static 'js/proj4-compressed.js' %}"></script>
+  <script src="{% static 'js/proj4leaflet.js' %}"></script>
+  <script src="{% static 'js/leaflet-providers.js' %}"></script>
+  <script src="{% static 'js/Leaflet.KoreanTmsProviders.js' %}"></script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="POSTECH MAP 2020">
+  <meta name="author" content="POSMAP2020">
+
+  <link href="{% static 'css/Metropolis-SemiBold.otf' %}" rel="stylesheet">
+  <link href="{% static 'css/Metropolis-Regular.otf' %}" rel="stylesheet">
+
+  <style>
+    .txt3 { 
+      font-family: SourceSansPro-Regular;
+      font-size: 16px;
+      line-height: 1.4;
+      color: #a10707;
+    }    
+  </style>
+  
+  <title>[POSMAP]{% block title %}{% endblock %}</title>
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+  {% block CSS %}
+  {% endblock %}
+
+</head>
+
+<body>
+  <script src="{% static 'vendor/jquery/jquery.slim.min.js'%}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  <!-- Navigation -->
+  {% block content %}
+  {% endblock %}
+  <!-- Bootstrap core JavaScript -->
+<!--===============================================================================================-->
+</body>
+
+</html>
